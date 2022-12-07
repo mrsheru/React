@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4</title>
+</head>
+<body>
+
+<!-- Add a DOM container for React -->
+<div id="app"></div>
+<!-- Load React. -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<!-- Load Babel -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!-- Use React -->
+<script type="text/jsx">
+    class Toggle extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state={
+                isToggleOn: true
+            };
+
+            this.handleClick = this.handleClick.bind(this)
+        }
+        handleClick(){
+            this.setState(prevState=>({
+              isToggleOn: !prevState.isToggleOn
+            }))
+        }
+
+        render(){
+            return(
+                <button onClick={this.handleClick}>
+                    {this.state.isToggleOn ? "On" : "Off"}
+                </button>
+            )
+        }
+    }
+
+    const app = document.getElementById('app')
+    let root = ReactDOM.createRoot(app)
+    root.render(<Toggle/>)
+</script>
+</body>
+</html>

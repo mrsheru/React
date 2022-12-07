@@ -1,0 +1,1 @@
+ReactDOM.render(what you want to put, where you want to put)
